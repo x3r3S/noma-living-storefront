@@ -11,7 +11,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -22,8 +22,14 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Run domain tests
-        run: npm test
+      - name: Enable pinned package manager
+        run: corepack enable
 
-      - name: Check JavaScript syntax
-        run: npm run check
+      - name: Install locked development dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install pinned Chromium runtime
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run the full quality gate
+        run: pnpm run gate

@@ -10,7 +10,16 @@
   "type": "module",
   "scripts": {
     "demo": "node scripts/serve.mjs",
-    "test": "node --test tests/*.test.mjs",
-    "check": "node --check src/domain.mjs && node --check src/app.mjs && node --check scripts/serve.mjs"
-  }
+    "test": "pnpm run test:unit && pnpm run test:browser",
+    "test:unit": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test",
+    "check": "node --check src/domain.mjs && node --check src/app.mjs && node --check scripts/serve.mjs && node --check scripts/capture-screenshots.mjs && node --check scripts/public-manifest.mjs && node --check playwright.config.mjs && node --check tests/browser/storefront.spec.mjs && node scripts/public-manifest.mjs --check",
+    "gate": "pnpm run check && pnpm test",
+    "screenshots:update": "node scripts/capture-screenshots.mjs",
+    "manifest:update": "node scripts/public-manifest.mjs --write"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
+  },
+  "packageManager": "pnpm@11.19.0"
 }

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-demo="true">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <div class="shipping-note">Complimentary delivery in Germany from €120 <span>·</span> 30-day returns</div>
   <header class="top">
     <a href="#top" class="logo" aria-label="Noma Living home">Noma <span>Living</span></a>
@@ -23,9 +24,13 @@
     </button>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
+        <div class="demo-boundary" role="note" aria-label="Project boundary">
+          <strong>Personal Demonstration Project</strong>
+          <span>Fictional product records · No checkout</span>
+        </div>
         <p class="eyebrow">The late-summer edit · 2026</p>
         <h1 id="hero-title">Less noise.<br><em>More room.</em></h1>
         <p class="hero-intro">Useful objects with honest materials, selected for homes that are still being lived in.</p>

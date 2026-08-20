@@ -2,6 +2,8 @@
 
 Noma Living is a small, photo-led storefront built around a catalog migration problem: messy source rows should not reach a new shop with duplicate identifiers, invalid prices or unsafe legacy links.
 
+The live footer links directly to this source repository and its CI history so the storefront can be checked from the same page a portfolio reviewer opens.
+
 ![Noma Living desktop storefront](screenshots/web-rescue-commerce-wide.png)
 
 ## The problem

@@ -1,0 +1,16 @@
+{
+  "name": "noma-living-catalog-case-study",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Photo-led static storefront with deterministic catalog migration checks.",
+  "license": "SEE LICENSE IN PORTFOLIO-REVIEW-LICENSE.md",
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "scripts": {
+    "demo": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check src/domain.mjs && node --check src/app.mjs && node --check scripts/serve.mjs"
+  }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Noma Living — considered objects for warm, lived-in rooms.">
+  <title>Noma Living — Objects for everyday rooms</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-demo="true">
+  <div class="shipping-note">Complimentary delivery in Germany from €120 <span>·</span> 30-day returns</div>
+  <header class="top">
+    <a href="#top" class="logo" aria-label="Noma Living home">Noma <span>Living</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#collection" data-category="all">Collection</a>
+      <a href="#collection" data-category="Lighting">Lighting</a>
+      <a href="#collection" data-category="Dining">Tableware</a>
+      <a href="#approach">Our approach</a>
+    </nav>
+    <button class="cart-button" id="cart-button" aria-label="Open bag">
+      Bag <span aria-hidden="true">·</span> <b id="cart-count">0</b>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">The late-summer edit · 2026</p>
+        <h1 id="hero-title">Less noise.<br><em>More room.</em></h1>
+        <p class="hero-intro">Useful objects with honest materials, selected for homes that are still being lived in.</p>
+        <a class="text-link" href="#collection">Shop the edit <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-edit" aria-label="The late-summer product edit">
+        <figure class="hero-card hero-card--alba">
+          <img src="assets/alba-pendant.jpg" alt="Woven pendant lamp casting warm light in a bedroom" fetchpriority="high">
+          <figcaption><span>01 · Lighting</span><b>Alba Woven Pendant</b><small>€129</small></figcaption>
+        </figure>
+        <figure class="hero-card hero-card--kinu">
+          <img src="assets/kinu-tableware.jpg" alt="Neutral stoneware arranged on a wooden board" fetchpriority="high">
+          <figcaption><span>02 · Dining</span><b>Kinu Stoneware Set</b><small>€84</small></figcaption>
+        </figure>
+        <figure class="hero-card hero-card--linde">
+          <img src="assets/linde-console.jpg" alt="White console table in a bright room" fetchpriority="high">
+          <figcaption><span>03 · Furniture</span><b>Linde Console Table</b><small>€189</small></figcaption>
+        </figure>
+        <figure class="hero-card hero-card--mara">
+          <img src="assets/mara-knit.jpg" alt="A stack of textured knitted throws" fetchpriority="high">
+          <figcaption><span>04 · Textiles</span><b>Mara Knit Throw</b><small>€92</small></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="collection-heading">
+        <div>
+          <p class="eyebrow">New and considered</p>
+          <h2 id="collection-title">Objects worth keeping</h2>
+        </div>
+        <p>Natural textures, quiet colours and useful forms. Selected in Berlin, made for everyday rooms.</p>
+      </div>
+
+      <div class="filters" aria-label="Product filters">
+        <label class="search-field">
+          <span class="sr">Search the collection</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>
+          <input id="search" type="search" autocomplete="off" placeholder="Search name or SKU">
+        </label>
+        <label class="select-field">
+          <span class="sr">Filter by category</span>
+          <select id="category" aria-label="Product category"><option value="all">All objects</option></select>
+        </label>
+        <span id="result-count" aria-live="polite"></span>
+      </div>
+
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="approach-copy">
+        <p class="eyebrow">A calmer way to choose</p>
+        <h2 id="approach-title">Fewer pieces.<br>Better reasons.</h2>
+        <p>We edit for material, proportion and usefulness, then keep the catalog tidy enough that every object is easy to find again.</p>
+        <a class="text-link light" href="#migration">Read the catalog notes <span aria-hidden="true">→</span></a>
+      </div>
+      <figure><img src="assets/kinu-tableware.jpg" alt="Neutral stoneware arranged on a wooden board" loading="lazy"></figure>
+    </section>
+
+    <section class="migration" id="migration" aria-labelledby="migration-title">
+      <div class="migration-heading">
+        <p class="eyebrow">Catalog notes / 04—08</p>
+        <h2 id="migration-title">Ready before it reaches the shelf.</h2>
+        <p>Product rows, prices and old links pass a local release check before the collection is shown.</p>
+      </div>
+      <div class="report-grid" id="report-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#top" class="logo" aria-label="Back to top">Noma <span>Living</span></a>
+    <p>Customer care · Berlin</p>
+    <p><a href="ASSET-LICENSES.md">Photography credits</a> · <span>© 2026 Noma Living</span></p>
+  </footer>
+
+  <aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1" hidden>
+    <div class="cart-head">
+      <div><span class="eyebrow">Your selection</span><b id="cart-title">Bag</b></div>
+      <button id="cart-close" aria-label="Close bag">Close</button>
+    </div>
+    <div id="cart-lines" class="cart-lines"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Subtotal</span><b id="cart-total">€0.00</b></div>
+      <p>Delivery calculated at checkout.</p>
+      <button class="disabled-checkout" disabled>Order review ends here</button>
+    </div>
+  </aside>
+  <div class="veil" id="veil" hidden></div>
+  <script type="module" src="src/app.mjs"></script>
+</body>
+</html>

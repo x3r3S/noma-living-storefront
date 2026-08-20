@@ -1,0 +1,6 @@
+[
+  { "sku": "ALB-01", "name": "Alba Woven Pendant", "category": "Lighting", "price": "129.00", "slug": "Alba Woven Pendant", "image": "alba-pendant.jpg" },
+  { "sku": "LIN-02", "name": "Linde Console Table", "category": "Furniture", "price": 189, "slug": "linde-console-table", "image": "linde-console.jpg" },
+  { "sku": "KIN-03", "name": "Kinu Stoneware Set", "category": "Dining", "price": 84, "slug": "kinu-stoneware-set", "image": "kinu-tableware.jpg" },
+  { "sku": "MAR-04", "name": "Mara Knit Throw", "category": "Textiles", "price": 92, "slug": "mara-knit-throw", "image": "mara-knit.jpg" }
+]

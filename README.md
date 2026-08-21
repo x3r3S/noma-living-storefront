@@ -17,7 +17,7 @@ A visual redesign is only useful if the underlying catalog is safe to publish. T
 
 ## The workflow
 
-The catalog module cleans names and identifiers, normalizes slugs and prices, blocks duplicate SKUs, reports duplicate slugs and missing images, and builds redirects only for safe local paths. The browser layer uses the approved rows for search, category filtering and a checkout-free bag.
+The catalog module cleans names and identifiers, normalizes slugs and prices, blocks duplicate SKUs, reports duplicate slugs and missing images, and builds redirects only from safe local paths to one approved SKU target. The browser layer uses the approved rows for search, category filtering and a checkout-free bag.
 
 The interface is deliberately unlike an admin dashboard. The first desktop view presents all four products as an asymmetric retail edit; the mobile layout starts with the brand story and a single lead photograph before the catalog.
 
@@ -28,7 +28,7 @@ The interface is deliberately unlike an admin dashboard. The first desktop view 
 - syntax checks for application, test and maintenance JavaScript;
 - four catalog rows and four validated local redirects;
 - working search, category, empty-result and bag states;
-- browser regression coverage at 1440×900 and 390×844 for the visible project boundary, skip-link focus, exact Source/CI URLs, 44×44 CSS-pixel evidence targets and horizontal overflow;
+- browser regression coverage at 1440×900 and 390×844 for the visible project boundary, consistent no-checkout bag copy, skip-link focus, exact Source/CI URLs, 44×44 CSS-pixel evidence targets and horizontal overflow;
 - responsive captures at 1440×900 and 390×844;
 - no framework, runtime dependency, analytics, payment integration or external write;
 - no runtime network request for fonts or images.

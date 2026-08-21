@@ -17,6 +17,8 @@ test("the live storefront states its honest project boundary", async () => {
   assert.match(html, /<strong>Personal Demonstration Project<\/strong>/);
   assert.match(html, /<span>Fictional product records · No checkout<\/span>/);
   assert.match(html, /role="note" aria-label="Project boundary"/);
+  assert.match(html, /Shipping and checkout are not available in this demo\./);
+  assert.doesNotMatch(html, /Delivery calculated at checkout\./);
 });
 
 test("the live storefront exposes a main-content bypass target", async () => {

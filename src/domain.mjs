@@ -26,7 +26,19 @@ export function auditCatalog(rawItems = []) {
 }
 
 export function buildRedirectMap(legacyPaths = [], products = []) {
-  const targetBySku = new Map(products.map((item) => [item.sku, `/products/${item.slug}`]));
+  const targetBySku = new Map();
+  const ambiguousSkus = new Set();
+  for (const item of products.slice(0, 1000)) {
+    const sku = clean(item?.sku, 80).toUpperCase();
+    const slug = clean(item?.slug, 90);
+    if (!item?.available || !sku || !slug || ambiguousSkus.has(sku)) continue;
+    if (targetBySku.has(sku)) {
+      targetBySku.delete(sku);
+      ambiguousSkus.add(sku);
+      continue;
+    }
+    targetBySku.set(sku, `/products/${slug}`);
+  }
   const usedFrom = new Set();
   return legacyPaths.slice(0, 2000).map((entry) => {
     const from = clean(entry?.from, 300);

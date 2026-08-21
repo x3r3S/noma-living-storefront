@@ -77,3 +77,12 @@ test("source evidence links are exact, keyboard-visible and at least 44 by 44", 
     await expect(link).toHaveCSS("outline-width", "3px");
   }
 });
+
+test("bag copy preserves the no-checkout project boundary", async ({ page }) => {
+  await page.getByRole("button", { name: "Open bag" }).click();
+
+  const bag = page.getByRole("dialog", { name: "Bag" });
+  await expect(bag).toBeVisible();
+  await expect(bag.getByText("Shipping and checkout are not available in this demo.", { exact: true })).toBeVisible();
+  await expect(bag).not.toContainText("Delivery calculated at checkout.");
+});

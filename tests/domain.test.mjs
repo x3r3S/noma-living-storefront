@@ -50,3 +50,29 @@ test("duplicate legacy paths do not create ambiguous redirects", () => {
   const redirects = buildRedirectMap([{ from: "/old", sku: "A-1" }, { from: "/old", sku: "B-2" }], products);
   assert.deepEqual(redirects.map((item) => item.valid), [true, false]);
 });
+
+test("a blocked duplicate SKU cannot replace the approved redirect target", () => {
+  const products = auditCatalog([
+    ...fixture,
+    { ...fixture[0], name: "Blocked duplicate", price: 55, slug: "blocked-duplicate" }
+  ]).products;
+
+  const [redirect] = buildRedirectMap([{ from: "/old/lamp", sku: "A-1" }], products);
+  assert.equal(redirect.valid, true);
+  assert.equal(redirect.status, 301);
+  assert.equal(redirect.to, "/products/desk-lamp");
+});
+
+test("redirects fail closed if callers provide two approved targets for one SKU", () => {
+  const [redirect] = buildRedirectMap(
+    [{ from: "/old/lamp", sku: "A-1" }],
+    [
+      { sku: "A-1", slug: "desk-lamp", available: true },
+      { sku: "A-1", slug: "other-lamp", available: true }
+    ]
+  );
+
+  assert.equal(redirect.valid, false);
+  assert.equal(redirect.status, 0);
+  assert.equal(redirect.to, "");
+});

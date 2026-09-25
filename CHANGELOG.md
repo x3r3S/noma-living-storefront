@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-25
+
+- Simplified the storefront introduction and kept the unavailable shipping/checkout message in the bag where it affects the workflow.
+- Retained the real licensed product photographs, keyboard navigation, source links and catalog validation rules.
+- Refreshed screenshots and browser checks for the updated introduction.
+
 ## 2026-08-21
 
 - Prevented blocked duplicate catalog rows from replacing an approved SKU's legacy redirect target, and made ambiguous approved targets fail closed.

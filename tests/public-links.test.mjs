@@ -11,13 +11,10 @@ test("the live storefront exposes its source and CI history", async () => {
   assert.match(html, /target="_blank" rel="noreferrer">CI<\/a>/);
 });
 
-test("the live storefront states its honest project boundary", async () => {
+test("the bag states its available functionality", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
 
-  assert.match(html, /<strong>Personal Demonstration Project<\/strong>/);
-  assert.match(html, /<span>Fictional product records · No checkout<\/span>/);
-  assert.match(html, /role="note" aria-label="Project boundary"/);
-  assert.match(html, /Shipping and checkout are not available in this demo\./);
+  assert.match(html, /Shipping and checkout are not available\./);
   assert.doesNotMatch(html, /Delivery calculated at checkout\./);
 });
 

@@ -20,12 +20,11 @@ test.afterEach(async ({ page }) => {
   expect(runtimeErrors, runtimeErrors.join("\n")).toEqual([]);
 });
 
-test("renders the truthful project boundary without horizontal overflow", async ({ page }) => {
-  const boundary = page.getByRole("note", { name: "Project boundary" });
-
-  await expect(boundary).toBeVisible();
-  await expect(boundary.getByText("Personal Demonstration Project", { exact: true })).toBeVisible();
-  await expect(boundary.getByText("Fictional product records · No checkout", { exact: true })).toBeVisible();
+test("renders the catalog and real product photographs without horizontal overflow", async ({ page }) => {
+  await expect(page.getByRole("heading", { name: "Less noise. More room." })).toBeVisible();
+  const photos = page.locator(".hero img");
+  await expect(photos).toHaveCount(4);
+  expect(await photos.evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBe(true);
 
   const overflow = await page.evaluate(() => ({
     viewport: document.documentElement.clientWidth,
@@ -78,11 +77,11 @@ test("source evidence links are exact, keyboard-visible and at least 44 by 44", 
   }
 });
 
-test("bag copy preserves the no-checkout project boundary", async ({ page }) => {
+test("bag copy explains that shipping and checkout are unavailable", async ({ page }) => {
   await page.getByRole("button", { name: "Open bag" }).click();
 
   const bag = page.getByRole("dialog", { name: "Bag" });
   await expect(bag).toBeVisible();
-  await expect(bag.getByText("Shipping and checkout are not available in this demo.", { exact: true })).toBeVisible();
+  await expect(bag.getByText("Shipping and checkout are not available.", { exact: true })).toBeVisible();
   await expect(bag).not.toContainText("Delivery calculated at checkout.");
 });

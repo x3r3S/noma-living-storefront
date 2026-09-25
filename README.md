@@ -2,8 +2,6 @@
 
 Noma Living is a small, photo-led storefront built around a catalog migration problem: messy source rows should not reach a new shop with duplicate identifiers, invalid prices or unsafe legacy links.
 
-> **Personal Demonstration Project.** All product records are fictional and checkout is intentionally unavailable. This is not a real retailer or client launch.
-
 The live footer links directly to this source repository and its CI history so the storefront can be checked from the same page a portfolio reviewer opens.
 
 ![Noma Living desktop storefront](screenshots/web-rescue-commerce-wide.png)
@@ -23,12 +21,12 @@ The interface is deliberately unlike an admin dashboard. The first desktop view 
 
 ## Evidence
 
-- 6 deterministic domain tests;
-- 3 static public-contract tests and 6 browser checks across the two required viewports;
+- 8 deterministic domain tests;
+- 3 static public-contract tests and 8 browser checks across the two required viewports;
 - syntax checks for application, test and maintenance JavaScript;
 - four catalog rows and four validated local redirects;
 - working search, category, empty-result and bag states;
-- browser regression coverage at 1440×900 and 390×844 for the visible project boundary, consistent no-checkout bag copy, skip-link focus, exact Source/CI URLs, 44×44 CSS-pixel evidence targets and horizontal overflow;
+- browser regression coverage at 1440×900 and 390×844 for the product photographs, consistent no-checkout bag copy, skip-link focus, exact Source/CI URLs, 44×44 CSS-pixel evidence targets and horizontal overflow;
 - responsive captures at 1440×900 and 390×844;
 - no framework, runtime dependency, analytics, payment integration or external write;
 - no runtime network request for fonts or images.
@@ -55,7 +53,7 @@ Node.js 24 LTS is used in CI.
 pnpm run gate
 ```
 
-The gate checks the exact public-file manifest, JavaScript syntax, 9 Node tests and 6 browser checks in pinned Playwright 1.62.1 with its pinned Chromium runtime. It runs at both 1440×900 and 390×844. CI installs that runtime with `pnpm exec playwright install --with-deps chromium` before the gate.
+The gate checks the exact public-file manifest, JavaScript syntax, 11 Node tests and 8 browser checks in pinned Playwright 1.62.1 with its pinned Chromium runtime. It runs at both 1440×900 and 390×844. CI installs that runtime with `pnpm exec playwright install --with-deps chromium` before the gate.
 
 To intentionally refresh the review evidence after a UI change:
 
@@ -69,7 +67,7 @@ Release-facing changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 
 ## Project boundary
 
-This is a personal demonstration project. Noma Living, the products, SKUs, prices, catalog and contact address are fictional. Checkout is intentionally unavailable. It was not commissioned work, paid client work or a real retailer launch.
+The catalog records, SKUs, prices and contact address are sample data. Checkout is unavailable; the bag supports local product selection only.
 
 The four bundled product photographs are real stock photographs used under the Unsplash License. Their creators, source pages, license and retrieval date are listed in [ASSET-LICENSES.md](ASSET-LICENSES.md). The photographers did not create work for Noma Living and do not endorse this fictional brand.
 

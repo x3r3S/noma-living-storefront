@@ -45,4 +45,4 @@ Unsplash states that images under the Unsplash License may be downloaded and use
 
 ## Truthful-use boundary
 
-The photographs are stock references for a self-initiated interface case study. The photographers did not create assets for Noma Living and do not endorse or partner with this fictional brand. The product names, SKUs, prices and availability labels are fictional UI copy.
+The photographs are licensed stock references used in the storefront interface. The photographers did not create assets for Noma Living and do not endorse or partner with this fictional brand. The product names, SKUs, prices and availability labels are fictional UI copy.
